@@ -1,0 +1,46 @@
+A Graph has vertices and Edges 
+Each node in a graph is called a Vertex
+Each connection between two node is called as an Edge
+
+1. Adjacent vertices
+    when two node are connected through an Edge then they are called adjacent vertices
+
+2. Degree
+    The number of edges passing through a vertex in a graph is called as degree of that Vertex
+    A --- B  # here degree of B is 2, degree of A is 1, degree of C is 1
+          |
+          C
+3. Path
+    Path is the a connection or a path between two nodes
+
+    A ----- B
+            |
+            C
+
+    D ----- E
+
+    In the above graph (A, C) have path but (A, E) does not have a path
+
+4. Connected Graph
+    A graph in which every two nodes have a path
+
+    A ----- B           A ----- B
+            |                   |
+            C           D ----- C            
+
+    D ----- E
+
+    In above two graphs second graph is called connected graph first one is not a connected graph
+
+5. Connected components
+    In a graph all the sub graphs that are connected are called Connected components
+    
+    A ----- B
+            |
+            C
+
+    D ----- E
+
+    Here (A, B, C) is a connected component and (D, E) is another connected component
+
+##  TREE :: A Tree is a connected graph with no cycles

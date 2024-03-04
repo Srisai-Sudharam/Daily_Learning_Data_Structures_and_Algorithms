@@ -1,0 +1,19 @@
+1. Adjecency List
+    This is a list of hashes where each element in a list has a hash of all its connected nodes
+    here Access time is O(1)
+    {
+        1: {2, 3}
+        2: {3, 4}
+    }
+
+2. Adjecency Matrix:
+    There will be an N X N matix which will store 1 if there is an edge between two nodes otherwise 0 is stored
+    
+    * for an edge (3, 2) in a matrix it will check if AdjMtx[3][2] == 1 there is an edge between two vertices
+
+    * Access O(1), but space is O(N^2)
+
+
+so if the vertices are in order of N then it is better to prefer Adjecency List
+
+if they are in order of N^2 any way we need N^2 space so use Adjecency Matrix

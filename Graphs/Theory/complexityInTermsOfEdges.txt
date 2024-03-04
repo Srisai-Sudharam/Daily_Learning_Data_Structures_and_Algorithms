@@ -1,0 +1,6 @@
+The minimum number of Edges = N-1
+The maximum number of Edges = N(N-1)/2 ~ O(N^2)
+
+##  Here 'N' referes to no of vertices
+
+so when complexity is given in terms of O(E) then best case is O(N) and worst case is O(N^2)
