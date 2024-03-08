@@ -26,7 +26,7 @@ class Edge:
 
 def getParent(v, parent):
     if v == parent[v]:
-        return 
+        return v
     return getParent(parent[v], parent)
 
 
@@ -70,5 +70,6 @@ for i in range(e):
 
 
 
-mst = kruskalsAlgorithm(edgeList, 6)
+mst = kruskalsAlgorithm(edgeList, n)
+print("---------")
 printEdgeList(mst)
