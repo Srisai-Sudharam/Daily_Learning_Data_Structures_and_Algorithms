@@ -37,7 +37,7 @@ def kruskalsAlgorithm(edgeList, noOfVertices):
     parent = [i for i in range(noOfVertices)]
     minimumSpanningTree = []
     i = 0
-    while(count <= noOfVertices - 1 and i < noOfVertices):
+    while(count < noOfVertices - 1):
         currentEdge = sortedEdgeList[i]
         srcParent = getParent(currentEdge.src, parent)
         destParent = getParent(currentEdge.dest, parent)
@@ -61,8 +61,8 @@ def printEdgeList(edgeList):
 
 
 edgeList = []    
-li = [int(ele) for ele in input().split()]
-n, e = li
+
+n, e = map(int, input().split())
 for i in range(e):
     src, dest, wt = input().split()
     edge = Edge(int(src), int(dest), int(wt))
