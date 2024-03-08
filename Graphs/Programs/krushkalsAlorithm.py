@@ -61,8 +61,8 @@ def printEdgeList(edgeList):
 
 
 edgeList = []    
-
-n, e = map(int, input().split())
+li = [int(ele) for ele in input().split()]
+n, e = li
 for i in range(e):
     src, dest, wt = input().split()
     edge = Edge(int(src), int(dest), int(wt))
@@ -71,5 +71,5 @@ for i in range(e):
 
 
 mst = kruskalsAlgorithm(edgeList, n)
-print("---------")
+
 printEdgeList(mst)
