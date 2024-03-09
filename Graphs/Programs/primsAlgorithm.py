@@ -23,7 +23,7 @@ class Graph:
         for i in range(self.noOfVertices):
             if((not visited[i]) and (( minVertex == -1) or (weights[minVertex] > weights[i]))):
                 minVertex = i
-        print(minVertex)
+
         return minVertex
 
     def prims(self):
@@ -42,7 +42,7 @@ class Graph:
 
             #explore neighbours and update weights and parent array
             for j in range(self.noOfVertices):
-                if not visited[i] and self.containsEdge(minVertex, j):
+                if not visited[j] and self.containsEdge(minVertex, j):
                     if(weights[j] > self.adjMatrix[minVertex][j]):
                         weights[j] = self.adjMatrix[minVertex][j]
                         parent[j] = minVertex
@@ -61,9 +61,9 @@ class Graph:
 
 nv, ne = map(int, input().split())
 g = Graph(nv)
-for i in range(nv):
+for i in range(ne):
     src, dest, wt = map(int, input().split())
     g.addEdge(src, dest, wt)
 
-print(g)
+
 g.prims()
