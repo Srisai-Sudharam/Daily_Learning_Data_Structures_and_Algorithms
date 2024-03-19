@@ -90,6 +90,36 @@ def insertAtIthRecursive(head, index, data):
     return head
 
 
+def deleteNode(head, pos) :
+    # write your code here !!
+    if head is None:
+        return 
+
+    if pos< 0 or pos > (length(head) - 1):
+        return head
+
+    count = 0
+    prev = None
+    curr = None
+
+    curr = head
+
+    while(count < pos):
+        prev = curr
+        curr = curr.next
+        count+=1
+    
+    if prev is None:
+        curr = head
+        head = head.next
+    else:
+        prev.next = curr.next
+    
+    curr.next = None
+
+    return head
+
+
 
 ll = takeInputOptimised()
 printLinkedList(insertAtIthRecursive(ll, 7, 12))
