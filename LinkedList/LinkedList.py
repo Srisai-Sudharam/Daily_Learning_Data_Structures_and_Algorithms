@@ -79,6 +79,17 @@ def insertAtIthPosition(head, index, data):
     return head
 
 
+def insertAtIthRecursive(head, index, data):
+    if head is None or index < 0 :
+        return head
+    if index == 0:
+        newNode = Node(data)
+        newNode.next = head
+        return newNode
+    head.next = insertAtIthRecursive(head.next, index - 1, data)
+    return head
+
+
 
 ll = takeInputOptimised()
-printLinkedList(insertAtIthPosition(ll, 3, 12))
+printLinkedList(insertAtIthRecursive(ll, 7, 12))
