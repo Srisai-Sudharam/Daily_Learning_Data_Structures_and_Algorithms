@@ -9,23 +9,38 @@ class Node :
 
 
 
+# def reverseLinkedListRec(head) :
+    
+# 	#Your code goes here
+#     if head is None:
+#         return 
+#     if head.next is None:
+#         return head
+    
+#     newHead = reverseLinkedListRec(head.next)
+#     curr = newHead
+#     while(curr.next is not None):
+#         curr = curr.next
+    
+#     curr.next = head
+#     head.next = None
+
+#     return newHead
+
+
+
+#better version here we are trying to use previous link to establish new link
 def reverseLinkedListRec(head) :
     
 	#Your code goes here
-    if head is None:
-        return 
-    if head.next is None:
+    if head is None or head.next is None:
         return head
     
     newHead = reverseLinkedListRec(head.next)
-    curr = newHead
-    while(curr.next is not None):
-        curr = curr.next
-    
-    curr.next = head
-    head.next = None
-
+    head.next.next = head
+    head.next  = None
     return newHead
+
 
 
 
