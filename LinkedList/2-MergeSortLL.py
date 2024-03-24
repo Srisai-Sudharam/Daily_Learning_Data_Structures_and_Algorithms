@@ -6,66 +6,103 @@ class Node :
     def __init__(self, data) :
         self.data = data
         self.next = None
-def midPoint(head) :
-    # Write your code here
-    slow = head
-    fast = head
-    if fast is None:
-        return None
-    while (fast.next is not None) and (fast.next.next is not None):
-        slow = slow.next
+    
+def midNode(head):
+    if head.next is None:
+        return head
+
+    slow, fast = head, head
+    
+    while fast.next is not None and fast.next.next is not None:
+        slow = slow.next 
         fast = fast.next.next
         
     return slow
 
-
 def merge(head1, head2):
     if head1 is None:
+        return head2 
+    
+    if head2 is None: 
         return head2
-    if head2 is None:
-        return head1
-    fh = None
-    ft = None
-    
-    if head1.data<head2.data:
-        fh = head1
-        ft = head1
-        head1 = head1.next
+
+    newHead, newTail = None, None
+
+    if head1.data <= head2.data:
+        newHead = head1
+        newTail = head1
+        head1 = head1.next 
     else:
-        fh = head2
-        ft = head2
+        newHead = head2
+        newTail = head2
         head2 = head2.next
-        
-    while head1 is not None and head2 is not None:
-              
-        if head1.data<head2.data:
-            ft.next = head1
-            head1 = head1.next
-            ft = ft.next
-        else:
-            ft.next = head2
-            head2 = head2.next
-            ft = ft.next
-        
-    if head1 is not None:
-        ft.next = head1
-    if head2 is not None:
-        ft.next = head2
-    return fh
     
+       
+    while head1 is not None and head2 is not None:
+        if head1.data <= head2.data:
+            newTail.next = head1
+            head1 = head1.next 
+            
+        else:
+            newTail.next = head2
+            head2 = head2.next
+            
+        newTail = newTail.next
+
+    
+    if head1 is not None:
+        newTail.next = head1
+
+    if head2 is not None:
+        newTail.next = head2
+    
+    return newHead
+
 
 
 def mergeSort(head) :
+	#Your code goes here
     if head is None or head.next is None:
         return head
-    mid = midPoint(head)
-    h2 = mid.next
+
+    mid = midNode(head)
+    firstHalf = head
+    secondHalf = mid.next 
+    
     mid.next = None
-    l1 = mergeSort(head)
-    l2 = mergeSort(h2)
-    return merge(l1, l2)
+
+    firstHalf = mergeSort(firstHalf)
+    secondHalf = mergeSort(secondHalf)
+
+    finalHead = merge(firstHalf, secondHalf)
     
     
+    return finalHead
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
