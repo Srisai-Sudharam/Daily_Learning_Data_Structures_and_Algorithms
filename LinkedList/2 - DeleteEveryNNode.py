@@ -1,6 +1,16 @@
+# You have been given a singly linked list of integers along with two integers, 'M,' and 'N.' 
+# Traverse the linked list such that you retain the 'M' nodes, then delete the next 'N' nodes. 
+# Continue the same until the end of the linked list. Indexing starts from 1.
+
+# To put it in other words, in the given linked list, you need to delete N nodes after every M nodes.
+
+# Note :
+# No need to print the list, it has already been taken care. Only return the new head to the list. You can return null in case where all nodes will be deleted.
+
+
 from sys import stdin
 
-#Following is the Node class already written for the Linked List
+
 class Node :
     def __init__(self, data) :
         self.data = data
@@ -10,37 +20,38 @@ class Node :
 
 def skipMdeleteN(head, M, N) :
 	#Your code goes here
-    if N == 0 or head is None:
-        return head
-    if M == 0:
+    
+    if M == 0 or head is None:
         return None
+    
+    if N == 0:
+        return head
+    
+    curr = head
+    tail = None
 
-    temp = head
-    delete = head
-    while temp is not None:
-        m = M-1
-        
-        
-        while m != 0 and temp is not None:
-            
-            m-=1
-            temp = temp.next
-            delete = delete.next
-        n = N+1
-        while n != 0 and delete is not None:
-            n-=1
-            delete = delete.next
-        if temp is not None:
-            
-            temp.next = delete
-            temp = temp.next
-            m = M
-            n = N
+    while curr is not None:
+        keep = 0
+        while curr is not None and keep < m:
+            if tail is None:
+                tail = curr
+            else:
+                tail.next = curr
+                tail = tail.next 
+            curr = curr.next
+            keep+=1
+
+        skip = 0
+        while curr is not None and skip < n:
+            curr = curr.next
+            skip+=1 
+    
+
+    if tail is not None:
+        tail.next = None
+    
     return head
-            
-            
-            
-        
+
 
 
 
@@ -117,3 +128,11 @@ while t > 0 :
     printLinkedList(newHead)
 
     t -= 1
+
+# 1
+# 10 22 10 26 11 7 8 1 23 5 1 28 0 -1
+# 2 3
+    
+# 1
+# 10 22 10 26 11 7 8 1 23 5 1 -1
+# 2 3
