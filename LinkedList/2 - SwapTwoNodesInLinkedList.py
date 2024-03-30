@@ -9,39 +9,42 @@ class Node :
 
 
 def swapNodes(head, i, j) :
-    if head is None or i == j:
+    if i == j:
         return head
-	#Your code goes here
-    m = 0 #name 
-    curr = head
-    while(m < i -1):
-        curr = curr.next
-        m += 1
-    first = curr
+    currentNode = head
+    prev = None
 
+    firstNode, secondNode, firstNodePrev, secondNodePrev = None, None, None, None
 
-    n = 0
-    curr = head
-    while(n < j-1):
-        curr = curr.next 
-        n+=1
-    second = curr
+    pos = 0
 
-    node1 = first.next 
-    node2 = second.next
-
-    if node1.next == node2:
-        first.next = node2
-        node1.next = node2.next
-        node2.next = node1
-    else:
-        node1.next = second.next.next
-        second.next = node1
-        node2.next = first.next.next
-        first.next = node2
-    
-    return head
+    while currentNode is not None:
+        if pos == i:
+            firstNodePrev.prev = prev
+            firstNode = currentNode
+        elif pos == j:
+            secondNodePrev = prev
+            secondNode = currentNode
         
+        prev = currentNode
+        currentNode = currentNode.next
+        pos+=1
+
+        if firstNodePrev is not None:
+            firstNodePrev.next = secondNode
+        else:
+            head = secondNode
+        
+        if secondNodePrev is not None:
+            secondNodePrev.next = firstNode
+        else:
+            head = firstNode
+        
+        currentfirstNode = secondNode.next
+        secondNode.next = firstNode.next
+        firstNode.next = currentfirstNode
+
+        return head
 
 
 
