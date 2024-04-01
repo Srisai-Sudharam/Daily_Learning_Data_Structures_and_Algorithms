@@ -1,0 +1,20 @@
+Array is a datastructure with fixed size and where all elements are of same type are stored
+contiguious memory allocation
+
+access time = O(1) # you can directly access through index ***random access***
+
+you just need to know the starting address you may find next element based on this
+
+suppose starting address is 200, and lets say it is an integer array and it will occupy 4 bytes of memory then 
+
+element at index 3 : 200 + 4 * (3 - start_index) in our case it is zero but this is a general formula
+
+insertion:
+    at end: O(1)
+    at middle or beginning: O(N) because first it need to shift all other to right since its a contiguious memory allocation
+
+deletion:
+    same as insertion at end O(1), otherwise O(N)
+
+finding an element:
+     O(N) depends on algorithm you use
