@@ -3,7 +3,7 @@ class Solution:
 
         left, right = 0, len(matrix) - 1
         while left < right:
-            for i in range(r-l):
+            for i in range(right-left):
                 top = left
                 bottom = right #since this is a square matrix
 
@@ -17,6 +17,8 @@ class Solution:
                 matrix[bottom][right - i] = matrix[top + i][right]
                 
                 matrix[top + i][right] = topLeft
+            left += 1
+            right -= 1 
 
 
         
