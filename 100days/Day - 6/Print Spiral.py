@@ -1,11 +1,11 @@
 from sys import stdin
 
 def spiralPrint(mat, nRows, mCols):
-    
+    #Your code goes here
     l, t = 0 ,0
     r, b = mCols -1, nRows - 1 
 
-    while (l < r or t < b):
+    while (l <=r and t <=b):
         #top row
         for i in range(l, r):
             print(mat[t][i], end = " ")
@@ -19,10 +19,16 @@ def spiralPrint(mat, nRows, mCols):
         for i in range(t, b):
             print(mat[nRows-i-1][l], end = " ")
         
+        if l == r and t == b:
+            print(mat[l][r])
+        
         l += 1 
         r -= 1
         t += 1
         b -= 1
+    
+    
+
 
 
 
