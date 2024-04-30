@@ -6,11 +6,18 @@ from math import *
 from sys import stdin,setrecursionlimit
 setrecursionlimit(10**7)
 
-def maxSubarraySum(arr, n) :
+#here I have set max_sum, curr_sum to zero since it is mentioned in problem to consider empty set
 
-	# Your code here
-    # return the answer
-	return 
+# other wise set them to arr[0] and traverse from 1 to len(arr) - 1
+
+def maxSubarraySum(arr, n) :
+    max_current, max_sum = 0, 0
+    for i in range(len(arr)):
+        max_current = max(arr[i], max_current + arr[i])
+        if max_current > max_sum:
+            max_sum = max_current
+    
+    return max_sum
 
 
 
