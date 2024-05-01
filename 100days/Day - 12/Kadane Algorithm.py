@@ -46,9 +46,6 @@ def maxSubarraySum(arr, n) :
 
 
 
-
-
-
 #taking inpit using fast I/O
 def takeInput() :
 	
